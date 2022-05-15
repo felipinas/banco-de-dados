@@ -74,7 +74,7 @@ CREATE TABLE episodio(
 CREATE TABLE assiste(
     id_de_usuario VARCHAR(60) NOT NULL,
     titulo VARCHAR(60) NOT NULL, 
-    duracao NUMBER,
+    tempo_assistido NUMBER,
     CONSTRAINT pk_assiste PRIMARY KEY (id_de_usuario, titulo),
     CONSTRAINT fk_assiste_usuario FOREIGN KEY (id_de_usuario) REFERENCES usuario (id_de_usuario),
     CONSTRAINT fk_assiste_conteudo FOREIGN KEY (titulo) REFERENCES conteudo (titulo)
@@ -89,7 +89,7 @@ CREATE TABLE possui(
     CONSTRAINT fk_possui_usuario FOREIGN KEY (id_de_usuario) REFERENCES usuario (id_de_usuario)
 );
 
-CREATE TABLE amizade(
+CREATE TABLE segue(
     id_seguidor VARCHAR(60) NOT NULL,
     id_seguido VARCHAR(60) NOT NULL,
     CONSTRAINT pk_amizade PRIMARY KEY (id_seguidor, id_seguido),
